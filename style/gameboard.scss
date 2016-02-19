@@ -1,0 +1,41 @@
+@import 'colors';
+
+
+.gameboard-container {
+    width: 100%;
+    height: 100%;
+    
+    background-color: $primaryBackground;
+    display: flex;
+    flex-direction: column;
+}
+
+.gameboard-top-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;   
+}
+
+.gameboard-bottom-area {
+    height: 30%;
+}
+
+.gameboard-next-area {
+    flex: 1.0; 
+    opacity: 0.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primaryBackground;
+    transition: flex 1s cubic-bezier(0.59, -0.1, 0.42, 0.98), opacity 1s cubic-bezier(0.59, -0.1, 0.42, 0.98);
+}
+
+.gameboard-next-area-reveal {
+    flex: 0.4 !important;
+    opacity: 1.0;
+}
+
+.gameboard-next-area-button {
+    width: 96px;
+    height: 96px !important;
+}

@@ -1,0 +1,26 @@
+@import 'colors';
+
+.menu {
+    background-color: $primaryBackground;
+    height: 100%;
+    width: 200px;
+    position: absolute;
+    z-index: 10;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: $primaryShadowColor 2px 0 4px;
+}
+
+.menu-hidden {
+    transform: translateX(-210px);
+}
+
+.menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    margin: 5px;
+}
+

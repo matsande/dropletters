@@ -1,0 +1,10 @@
+@import 'colors';
+
+.letter-source {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    background-color: $primaryBackground;
+    justify-content: space-around;
+    align-items: center;
+}

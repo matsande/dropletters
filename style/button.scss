@@ -1,0 +1,43 @@
+@import 'colors';
+
+.button {
+    height: 40px;    
+    line-height: 40px;
+    text-align: center; 
+    display: block;  
+    box-shadow: $primaryShadowColor 2px 2px 4px, $softShadowColor -1px -1px 8px;
+    cursor: pointer;     
+    border-radius: 2px;
+    background-color: $activeBackground;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.button-disabled {
+    box-shadow: none;
+    background-color: $disabledBackground;
+    opacity: 0.7;
+}
+
+.button-label, .button-icontext-label {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.button-icon, .button-icontext-icon {
+    background-size: contain;    
+    height: inherit;    
+}
+
+.button-icontext {
+    display: flex;
+    flex-direction: row;
+}
+
+.button-icontext-icon {
+    width: 40px;
+}
+
+.button-icontext-label {    
+    flex: 1;
+}

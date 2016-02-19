@@ -1,0 +1,31 @@
+{
+  "name": "dropletters",
+  "version": "1.0.0",
+  "description": "Simple drag&drop based spelling game",
+  "main": "src/app",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [],
+  "author": "matsande",
+  "license": "MIT",
+  "dependencies": {
+    "jspm": "^0.16.29"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-html-replace": "^1.5.5",
+    "gulp-sass": "^2.2.0",
+    "jasmine": "^2.4.1"
+  },
+  "jspm": {
+    "dependencies": {
+      "howler": "npm:howler@^1.1.29",
+      "react": "npm:react@^0.14.7",
+      "react-dnd": "npm:react-dnd@^2.1.2",
+      "react-dnd-touch-backend": "npm:react-dnd-touch-backend@^0.2.4",
+      "react-dom": "npm:react-dom@^0.14.7"
+    },
+    "devDependencies": {}
+  }
+}

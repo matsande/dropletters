@@ -1,0 +1,12 @@
+@import 'colors';
+
+.letter {    
+    background-color: $activeBackground;    
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    text-align: center;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 40px;   
+    cursor: pointer; 
+    border-radius: 2px;
+}

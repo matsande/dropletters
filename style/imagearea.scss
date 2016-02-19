@@ -1,0 +1,21 @@
+@import 'colors';
+
+.image-area-container {
+    flex: 1;
+    display: flex;
+    background-color: $secondaryBackground;
+    border-bottom: 1px solid $primaryBorderColor;
+}
+
+.image-area-container > div {
+    flex: 1;
+    margin: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $imageBackdropBackground;
+    background-origin: content-box;
+    padding: 10px;
+    box-shadow: $primaryShadowColor 2px 2px 4px, $primaryShadowColor -2px -2px 4px;
+    border-radius: 2px;
+}

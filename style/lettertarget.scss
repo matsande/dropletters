@@ -1,0 +1,38 @@
+@import 'colors';
+
+.word-target {
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    background-color: $secondaryBackground; 
+    transition: background-color 1s ease-in-out;
+    border: 1px solid $primaryBorderColor;
+}
+
+.word-target-done {
+    background-color: $wordTargetDoneBackground;
+}
+
+.letter-target {
+    width: 120px;
+    height: 120px;    
+    box-shadow: $primaryShadowColor 2px 2px 4px inset;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.letter-unknown-bg {
+    background-color: $letterUnknownColor;
+}
+
+.letter-invalid-bg {
+    background-color: $letterInvalidColor;
+}
+
+.letter-valid-bg {
+    background-color: $letterValidColor;
+}
