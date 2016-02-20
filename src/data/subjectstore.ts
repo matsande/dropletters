@@ -1,6 +1,6 @@
 
 import {SubjectStoreUpdated} from '../common/notifications';
-import {EditSubject, AddSubject, DeleteSubject, SaveSubjects} from '../common/commands';
+import {EditSubject, AddSubject, DeleteSubject, SaveSubjects, SetSubjects} from '../common/commands';
 import {SubjectData} from '../common/domain';
 
 
@@ -93,6 +93,12 @@ export class SubjectStore {
                 return this.persistance.save(this.subjects);
             }
         });
+        
+        SetSubjects.define({
+           execute: subjects => {
+                this.setSubjects(subjects);   
+           } 
+        });
     }
 
     get subjects() {
@@ -104,19 +110,19 @@ export class SubjectStore {
         
         this.nextIdentity = 0;
         return this.persistance.load().then(subjects => {
-            if (subjects && subjects.length > 0) {
-                
-                this._subjects = subjects.map(subj => new Subject(subj.word, subj.imageUrl, this.getNextIdentity()));
-            } else {
-                console.log('Initialize with defaults');
-                
-                // defaults
-                this._subjects = [
-                    new Subject('viktor', '/res/image/test_image.png', this.getNextIdentity()),
-                    new Subject('mats', '', this.getNextIdentity())
-                ];
-            }
+            this.setSubjects(subjects);
         });
+    }
+    
+    private setSubjects(subjects: Array<SubjectData>) {
+        
+        if (subjects && subjects.length > 0) {                
+            this._subjects = subjects.map(subj => new Subject(subj.word, subj.imageUrl, this.getNextIdentity()));
+            SubjectStoreUpdated.publish();
+        } else {
+            this._subjects = [];
+            console.warn('Invalid subjects passed to setSubjects');
+        }
     }
 
     private addSubject() {

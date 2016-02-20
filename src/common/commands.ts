@@ -8,6 +8,7 @@ enum CommandIdentity {
     SetWord,
     EditSubject,
     AddSubject,
+    SetSubjects,
     DeleteSubject,
     SaveSubjects,
     MoveNext,
@@ -27,6 +28,7 @@ export const SetWord = createCommand<string, void>(CommandIdentity.SetWord);
 // I'd say wait for https://github.com/Microsoft/TypeScript/issues/2175 to be solved, then make the arg optional and res = void <T, R = void>
 export const EditSubject = createCommand<{ identity: number, data: SubjectData}, void>(CommandIdentity.EditSubject);
 export const AddSubject = createCommand<{}, void>(CommandIdentity.AddSubject);
+export const SetSubjects = createCommand<Array<SubjectData>, void>(CommandIdentity.SetSubjects);
 export const DeleteSubject = createCommand<number, void>(CommandIdentity.DeleteSubject);
 export const SaveSubjects = createCommand<{}, {}>(CommandIdentity.SaveSubjects);
 export const MoveNext = createCommand<{}, {}>(CommandIdentity.MoveNext);

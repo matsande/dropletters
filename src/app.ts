@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom';
 import {LetterStore} from './data/letterstore';
 import {SubjectStore, LocalStorageSubjectPersistance} from './data/subjectstore';
 import {LetterStoreUpdated, AllDone, SubjectStoreUpdated} from './common/notifications';
-import {SetWord, MoveNext, PlaySound} from './common/commands';
+import {SetWord, MoveNext, PlaySound, SetSubjects} from './common/commands';
 import {Scaffold} from './components/scaffold';
 import {SoundManager, SoundIdentity} from './services/sound';
 import {SubjectData} from './common/domain';
@@ -32,6 +32,7 @@ class Application {
 
         this.bootstrap()
             .then(() => this.soundManager.initialize())
+            .then(() => this.render(this.letterStore, this.selectedSubject))
             .catch(err => {
                 console.error('Initialization error', err);
                 alert(`Initialization error: ${err}`);
@@ -60,6 +61,31 @@ class Application {
             this.render(this.letterStore, this.selectedSubject);
         });
 
+        this.soundManager = new SoundManager();
+        this.letterStore = new LetterStore();
+        this.subjectStore = new SubjectStore(new LocalStorageSubjectPersistance());
+
+        return this.subjectStore.initialize()
+            .then(() => {
+                if (this.subjectStore.subjects.length <= 0) {
+                    
+                    console.log('Using default subjects');                  
+                    SetSubjects.execute([
+                        { word: 'cat', imageUrl: '/res/image/cat.jpg', identity: -1 },
+                        { word: 'dog', imageUrl: '/res/image/dog.jpg', identity: -1 }
+                    ]);
+                }
+
+                this.selectSubject(0);
+                SetWord.execute(this.selectedSubject.word);
+            })
+            .then(() => {
+                this.initializeSubscriptions();
+            });
+    }
+
+    private initializeSubscriptions() {
+        
         LetterStoreUpdated.subscribe(notificationData => {
             if (notificationData.letterPlaced) {
                 PlaySound.execute(SoundIdentity.LetterPlaced);
@@ -76,20 +102,10 @@ class Application {
             }
         });
 
-        AllDone.subscribe(() => {            
+        AllDone.subscribe(() => {
             PlaySound.execute(SoundIdentity.WordComplete);
             this.render(this.letterStore, this.selectedSubject);
         });
-
-        this.soundManager = new SoundManager();
-        this.letterStore = new LetterStore();
-        this.subjectStore = new SubjectStore(new LocalStorageSubjectPersistance());
-        
-        return this.subjectStore.initialize()
-            .then(() => {
-                this.selectSubject(0);
-                SetWord.execute(this.selectedSubject.word);
-            });
     }
 
     private selectSubject(index: number) {
