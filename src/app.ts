@@ -71,8 +71,8 @@ class Application {
                     
                     console.log('Using default subjects');                  
                     SetSubjects.execute([
-                        { word: 'cat', imageUrl: '/res/image/cat.jpg', identity: -1 },
-                        { word: 'dog', imageUrl: '/res/image/dog.jpg', identity: -1 }
+                        { word: 'cat', imageUrl: 'res/image/cat.jpg', identity: -1 },
+                        { word: 'dog', imageUrl: 'res/image/dog.jpg', identity: -1 }
                     ]);
                 }
 

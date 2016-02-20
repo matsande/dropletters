@@ -26,11 +26,11 @@ export class SubjectListItem extends React.Component<SubjectListItemProps, {}> {
             <div className='subject-list-item-word'>{word}</div>
             <div className='subject-list-item-controls'>
                 <Button 
-                    icon='/res/image/icon/ic_edit_black_24dp_1x.png' 
+                    icon='res/image/icon/ic_edit_black_24dp_1x.png' 
                     className='subject-list-item-control-button' 
                     onClick={this.onEditClicked.bind(this)}/>
                 <Button 
-                    icon='/res/image/icon/ic_delete_black_24dp_1x.png' 
+                    icon='res/image/icon/ic_delete_black_24dp_1x.png' 
                     className='subject-list-item-control-button' 
                     onClick={this.onDeleteClicked.bind(this)}/>
             </div>

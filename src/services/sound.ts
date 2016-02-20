@@ -25,8 +25,8 @@ export class SoundManager {
     constructor() {
                 
         this.soundDescriptors = [
-            { identity: SoundIdentity.LetterPlaced, urls: ['/res/audio/letter_placed.mp3']},
-            { identity: SoundIdentity.WordComplete, urls: ['/res/audio/word_complete.mp3']},
+            { identity: SoundIdentity.LetterPlaced, urls: ['res/audio/letter_placed.mp3']},
+            { identity: SoundIdentity.WordComplete, urls: ['res/audio/word_complete.mp3']},
         ];       
         
         PlaySound.define({

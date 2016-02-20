@@ -43,12 +43,12 @@ export class SubjectEditItem extends React.Component<SubjectEditProps, {}> {
                 </div>
                 <div className='subject-list-edit-controls'>
                     <Button 
-                        icon='/res/image/icon/ic_cancel_black_24dp_2x.png' 
+                        icon='res/image/icon/ic_cancel_black_24dp_2x.png' 
                         label='cancel'
                         className='subject-list-edit-controls-button' 
                         onClick={this.onEditCancelClick.bind(this)}/>
                     <Button 
-                        icon='/res/image/icon/ic_save_black_24dp_2x.png' 
+                        icon='res/image/icon/ic_save_black_24dp_2x.png' 
                         label='save'
                         className='subject-list-edit-controls-button'
                         onClick={this.onEditSaveClick.bind(this)}/>

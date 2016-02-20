@@ -82,7 +82,7 @@ class NextButtonArea extends React.Component<{onClick: () => void}, {}> {
             <div className='gameboard-next-area' ref={nextArea => this.nextArea = nextArea}> 
                 <Button
                     className='gameboard-next-area-button' 
-                    icon='/res/image/icon/ic_skip_next_black_48dp_2x.png' 
+                    icon='res/image/icon/ic_skip_next_black_48dp_2x.png' 
                     onClick={this.props.onClick}/>
             </div>   
         );        

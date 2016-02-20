@@ -42,10 +42,10 @@ export class Scaffold extends React.Component<ScaffoldProps, ScaffoldState> {
             <div className='scaffold'>
                 <Overlay visible={this.state.menuVisible} onClickHandler={this.onOverlayClicked.bind(this)}/>
                 <Menu visible={this.state.menuVisible}>
-                    <Button icon='/res/image/icon/ic_edit_black_24dp_2x.png' label={'edit'} onClick={this.onEditButtonClicked.bind(this)}/>
+                    <Button icon='res/image/icon/ic_edit_black_24dp_2x.png' label={'edit'} onClick={this.onEditButtonClicked.bind(this)}/>
                 </Menu>
                 
-                <Button className='menu-button' icon='/res/image/icon/ic_menu_black_24dp_2x.png' onClick={this.onMenuButtonClicked.bind(this)}/>               
+                <Button className='menu-button' icon='res/image/icon/ic_menu_black_24dp_2x.png' onClick={this.onMenuButtonClicked.bind(this)}/>               
                 
                 <GameBoardHost imgSource={imgSource} lettersource={sources} lettertarget={targets} done={done}/>
                 

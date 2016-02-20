@@ -56,13 +56,13 @@ export class SubjectList extends React.Component<SubjectListProps, SubjectListSt
             </div>
             <div className='subject-list-controls'>
                 <Button 
-                    icon='/res/image/icon/ic_add_box_black_24dp_2x.png' 
+                    icon='res/image/icon/ic_add_box_black_24dp_2x.png' 
                     label={'add'} 
                     className='subject-list-control-button'
                     enabled={!editSubject}
                     onClick={this.onAddClicked.bind(this)}/>
                 <Button 
-                    icon='/res/image/icon/ic_save_black_24dp_2x.png' 
+                    icon='res/image/icon/ic_save_black_24dp_2x.png' 
                     label={'save'}
                     className='subject-list-control-button'
                     enabled={!editSubject} 
